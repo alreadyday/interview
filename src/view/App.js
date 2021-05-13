@@ -1,4 +1,5 @@
 function App() {
+  const a = 0;
   return (
     <div className="App">
       <header className="App-header">
