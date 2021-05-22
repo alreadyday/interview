@@ -30,7 +30,7 @@ export default function Row({index, list}){
   return (
     <RowWrapper>
       <div>{index}</div>
-      <input onChange={onChange} />
+      <input aria-label="string-input" onChange={onChange} />
       <button type='button' onClick={onClickDeleteButton}>Delete</button>
       <div>{JSON.stringify(containsList)}</div>
     </RowWrapper>
