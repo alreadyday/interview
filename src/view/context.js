@@ -21,7 +21,6 @@ export function RowListProvider({children}){
     <Context.Provider value={{
         value: rowInfo,
         set: setRowInfo,
-        // delete
       }}
     >
       {children}
