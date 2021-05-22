@@ -1,8 +1,13 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+jest.mock('./AddButton');
+jest.mock('./RowListContainer');
+
+test('renders container', () => {
   render(<App />);
-  const linkElement = screen.getByText(/Edit/i);
-  expect(linkElement).toBeInTheDocument();
+  const AddButton = screen.getByTestId('add-button');
+  const RowListContainer = screen.getByTestId('row-list-container');
+  expect(AddButton).toBeInTheDocument();
+  expect(RowListContainer).toBeInTheDocument();
 });
