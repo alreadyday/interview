@@ -1,13 +1,15 @@
+import React from 'react';
+import AddButton from './AddButton';
+import { Context } from './context';
+import RowListContainer from './RowListContainer';
+
 function App() {
-  const a = 2;
+  const {value} = React.useContext(Context)
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit&nbsp;
-          <code>src/App.js</code>
-        </p>
-      </header>
+    <div>
+      <div>{value.length}</div>
+      <RowListContainer />
+      <AddButton />
     </div>
   );
 }
