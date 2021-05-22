@@ -5,7 +5,9 @@ import { useDeleteRowInfo, useUpdateRowInfo } from './context';
 
 
 export const RowWrapper = Styled.div`
-  display: flex
+  display: grid;
+  grid-template-columns: 1rem 10rem 4rem 5rem;
+  grid-gap: 1rem;
 `;
 export default function Row({index, list}){
   const doUpdate = useUpdateRowInfo(index);
