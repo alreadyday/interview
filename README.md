@@ -16,4 +16,4 @@ Run unit test with
 Run e2e testing with
 
 - npm start
-- npx wdio run wdio.conf.js
+- npm run wdio
