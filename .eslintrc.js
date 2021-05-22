@@ -21,6 +21,7 @@ module.exports = {
   },
   rules: {
     // TODO: enable after all prop-types are fixed
+    'semi': ["error", "always"],
     'react/prop-types': 'warn',
     'no-shadow': 'off',
 
@@ -110,4 +111,4 @@ module.exports = {
       },
     },
   ],
-};
+}

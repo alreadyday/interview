@@ -5,7 +5,8 @@ export const Context = React.createContext(null);
 
 /*
   row: {
-    string:
+    string: string
+    id: getTime
   }
 
   rowList: [
@@ -18,27 +19,46 @@ export function RowListProvider({children}){
 
   return (
     <Context.Provider value={{
-    value: rowInfo,
-    set: setRowInfo,
-    // delete
-  }}
+        value: rowInfo,
+        set: setRowInfo,
+        // delete
+      }}
     >
       {children}
     </Context.Provider>
-  )
+  );
 }
 
 RowListProvider.propTypes = {
   children: PropTypes.node.isRequired,
-}
+};
 
 export function useGetRowInfo(){
   const {value} = React.useContext(Context);
   return value;
 }
 
-// export function useAddRowInfo(){
-//   const {value, set} = React.useContext(Context);
-//   console.warn('call useAddRowInfo');
-//   set([...value, {string:''}]);
-// }
+export function useAddRowInfo(){
+  const {value, set} = React.useContext(Context);
+  return React.useCallback(()=>{
+    const newValue = [...value, {string: '', id: new Date().getTime()}];
+    set(newValue);
+  },[value, set]);
+}
+
+export function useUpdateRowInfo(i){
+  const {value, set} = React.useContext(Context);
+  return React.useCallback((str)=>{
+    const newNode = {...value[i], ...{string: str}};
+    const newList = [...value.slice(0,i), newNode, ...value.slice(i+1)];
+    set(newList);
+  },[value, set, i]);
+}
+
+export function useDeleteRowInfo(i){
+  const {value, set} = React.useContext(Context);
+  return React.useCallback(()=>{
+    const newList = [...value.slice(0,i), ...value.slice(i+1)];
+    set(newList);
+  },[value, set, i]);
+}

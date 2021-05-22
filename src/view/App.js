@@ -4,7 +4,7 @@ import { Context } from './context';
 import RowListContainer from './RowListContainer';
 
 function App() {
-  const {value} = React.useContext(Context)
+  const {value} = React.useContext(Context);
   return (
     <div>
       <div>{value.length}</div>
