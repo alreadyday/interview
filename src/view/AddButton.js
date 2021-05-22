@@ -1,7 +1,11 @@
 import React from 'react';
 import { useAddRowInfo } from './context';
 
-export default function AddButton(){
+export default function AddButton() {
   const onClick = useAddRowInfo();
-  return <button type='button' onClick={onClick}>Add</button>;
+  return (
+    <button id="add-button" type="button" onClick={onClick}>
+      Add
+    </button>
+  );
 }
